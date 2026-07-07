@@ -40,7 +40,32 @@
     .hero { padding: 24px 150px 0; }
     .hero h1 { font-size: 32px; font-weight: 600; line-height: 40px; color: rgba(0,0,0,.87); }
     .hero .sub { margin-top: 4px; font-size: 18px; font-weight: 400; line-height: 26px; color: rgba(0,0,0,.87); }
-    .plans { margin-top: 32px; display: flex; gap: 32px; align-items: flex-start; }
+    .plans { margin-top: 16px; display: flex; gap: 32px; align-items: flex-start; }
+
+    /* ---------- preview version switcher ---------- */
+    .switcher {
+      margin-top: 20px;
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 12px;
+    }
+    .switcher button {
+      border: 0;
+      cursor: pointer;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: transparent;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: rgba(0,0,0,.6);
+      transition: background .2s, color .2s;
+    }
+    .switcher button.active { background: #1F5DE2; color: #fff; }
 
     /* ---------- score card ---------- */
     .card {
@@ -130,10 +155,17 @@
     }
     .dots-overlay {
       position: absolute;
-      inset: 0;
+      left: 0;
+      top: 0;
       z-index: 0;
       pointer-events: none;
     }
+
+    /* v2 preview: no score, headline on top, resume raised */
+    .card-v2 .headline { top: 32px; }
+    .card-v2 .chips { top: 112px; }
+    .card-v2 .chip-2 { width: 150px; }
+    .card-v2 .resume { top: 170px; }
 
     /* ---------- payment panel ---------- */
     .right-col {
@@ -354,9 +386,14 @@
       <h1>Start your 7-day free trial and download file instantly</h1>
       <p class="sub">You're one step closer to getting your dream job!</p>
 
+      <div class="switcher" role="tablist" aria-label="Preview version">
+        <button type="button" id="tabV1" class="active" role="tab" aria-selected="true">With score</button>
+        <button type="button" id="tabV2" role="tab" aria-selected="false">Resume ready</button>
+      </div>
+
       <div class="plans">
-        <!-- ===== score card (preview) ===== -->
-        <section class="card">
+        <!-- ===== score card (preview v1) ===== -->
+        <section class="card" id="cardV1">
           <div class="score-num" id="score">87</div>
           <div class="badge-wrap">
             <div class="badge"><span class="msr">star</span><span>Top 14% of applicants</span></div>
@@ -392,6 +429,38 @@
             <ellipse opacity="0.77" cx="498.452" cy="268.378" rx="2.58004" ry="2.21146" transform="rotate(-130.487 498.452 268.378)" fill="#FFD166"/>
             <rect opacity="0.87" x="138.602" y="480.727" width="4.99991" height="4.99991" rx="1" transform="rotate(121.513 138.602 480.727)" fill="#54A55C"/>
             <circle opacity="0.72" cx="357.589" cy="395.33" r="2.91657" transform="rotate(123.513 357.589 395.33)" fill="#3B71E3"/>
+          </svg>
+        </section>
+
+        <!-- ===== ready card (preview v2) ===== -->
+        <section class="card card-v2" id="cardV2" hidden>
+          <div class="headline">
+            <h2>Your resume is ready, Yana! 🎉</h2>
+            <p>Download it and start applying.</p>
+          </div>
+          <div class="chips">
+            <div class="chip chip-1"><span class="chip-icon">🛡️</span><span>ATS-optimized</span></div>
+            <div class="chip chip-2"><span class="chip-icon">👤</span><span>Recruiter-ready</span></div>
+          </div>
+          <img class="resume" src="assets/resume.png" alt="Resume preview — Yana Mykhailenko, Product Designer" width="422" height="473">
+          <svg class="dots-overlay" width="508" height="472" viewBox="0 0 508 472" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="460.879" cy="13.8671" r="3.73919" transform="rotate(11.5135 460.879 13.8671)" fill="#3B71E3"/>
+            <ellipse cx="81.3035" cy="15.8869" rx="3.73919" ry="3.20502" transform="rotate(11.5135 81.3035 15.8869)" fill="#FFD166"/>
+            <ellipse cx="466.537" cy="55.7768" rx="3.73919" ry="3.20502" transform="rotate(116.513 466.537 55.7768)" fill="#FFD166"/>
+            <ellipse cx="60.3068" cy="80.8269" rx="3.73919" ry="3.20502" transform="rotate(-91.5937 60.3068 80.8269)" fill="#FFD166"/>
+            <ellipse cx="41.4455" cy="164.166" rx="3.73919" ry="3.20502" transform="rotate(-91.5937 41.4455 164.166)" fill="#FFD166"/>
+            <rect x="84.6582" y="112" width="8.19657" height="8.19657" rx="1" transform="rotate(26.5135 84.6582 112)" fill="#54A55C"/>
+            <ellipse opacity="0.88" cx="45.2892" cy="24.9625" rx="4.22529" ry="3.62167" transform="rotate(-22.4866 45.2892 24.9625)" fill="#FFD166"/>
+            <ellipse opacity="0.88" cx="448.522" cy="143.872" rx="4.22529" ry="3.62167" transform="rotate(82.5134 448.522 143.872)" fill="#FFD166"/>
+            <ellipse opacity="0.88" cx="26.7338" cy="86.5197" rx="4.22529" ry="3.62167" transform="rotate(-125.594 26.7338 86.5197)" fill="#FFD166"/>
+            <ellipse opacity="0.88" cx="438.289" cy="88.9622" rx="4.22529" ry="3.62167" transform="rotate(-22.4866 438.289 88.9622)" fill="#FFD166"/>
+            <rect opacity="0.99" x="35.2148" y="23.0627" width="5.24581" height="5.24581" rx="1" transform="rotate(121.513 35.2148 23.0627)" fill="#54A55C"/>
+            <circle opacity="0.96" cx="425.501" cy="14.5023" r="2.767" transform="rotate(108.513 425.501 14.5023)" fill="#3B71E3"/>
+            <circle opacity="0.96" cx="41.2457" cy="122.524" r="2.767" transform="rotate(-99.5937 41.2457 122.524)" fill="#3B71E3"/>
+            <circle opacity="0.96" cx="38.189" cy="60.1895" r="2.767" transform="rotate(-99.5937 38.189 60.1895)" fill="#3B71E3"/>
+            <rect opacity="0.76" x="25.5586" y="13.6543" width="7.54085" height="7.54085" rx="1" transform="rotate(-137.487 25.5586 13.6543)" fill="#54A55C"/>
+            <ellipse opacity="0.77" cx="498.452" cy="204.378" rx="2.58004" ry="2.21146" transform="rotate(-130.487 498.452 204.378)" fill="#FFD166"/>
+            <rect opacity="0.87" x="138.602" y="416.727" width="4.99991" height="4.99991" rx="1" transform="rotate(121.513 138.602 416.727)" fill="#54A55C"/>
           </svg>
         </section>
 
@@ -575,7 +644,9 @@
 
     // ----- score count-up on open -----
     const scoreEl = document.getElementById('score');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function startScoreCount() {
+      if (reducedMotion) { scoreEl.textContent = '87'; return; }
       const TARGET = 87, DURATION = 1100, START_DELAY = 250;
       scoreEl.textContent = '0';
       setTimeout(() => {
@@ -588,6 +659,25 @@
         })(t0);
       }, START_DELAY);
     }
+    startScoreCount();
+
+    // ----- preview version switcher -----
+    const cardV1 = document.getElementById('cardV1');
+    const cardV2 = document.getElementById('cardV2');
+    const tabV1 = document.getElementById('tabV1');
+    const tabV2 = document.getElementById('tabV2');
+    function showVersion(v) {
+      const showV1 = v === 1;
+      cardV1.hidden = !showV1;
+      cardV2.hidden = showV1;
+      tabV1.classList.toggle('active', showV1);
+      tabV2.classList.toggle('active', !showV1);
+      tabV1.setAttribute('aria-selected', showV1);
+      tabV2.setAttribute('aria-selected', !showV1);
+      if (showV1) startScoreCount();
+    }
+    tabV1.addEventListener('click', () => showVersion(1));
+    tabV2.addEventListener('click', () => showVersion(2));
   </script>
 </body>
 </html>
