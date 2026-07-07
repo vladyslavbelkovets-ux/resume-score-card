@@ -40,11 +40,17 @@
     .hero { padding: 24px 150px 0; }
     .hero h1 { font-size: 32px; font-weight: 600; line-height: 40px; color: rgba(0,0,0,.87); }
     .hero .sub { margin-top: 4px; font-size: 18px; font-weight: 400; line-height: 26px; color: rgba(0,0,0,.87); }
-    .plans { margin-top: 16px; display: flex; gap: 32px; align-items: flex-start; }
+    .plans { margin-top: 32px; display: flex; gap: 32px; align-items: flex-start; }
 
-    /* ---------- preview version switcher ---------- */
+    /* ---------- preview version switcher (demo bar above the page) ---------- */
+    .demo-bar {
+      width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 16px 0;
+    }
     .switcher {
-      margin-top: 20px;
       display: inline-flex;
       gap: 4px;
       padding: 4px;
@@ -377,6 +383,13 @@
     </symbol>
   </svg>
 
+  <div class="demo-bar">
+    <div class="switcher" role="tablist" aria-label="Preview version">
+      <button type="button" id="tabV1" class="active" role="tab" aria-selected="true">With score</button>
+      <button type="button" id="tabV2" role="tab" aria-selected="false">Resume ready</button>
+    </div>
+  </div>
+
   <div class="page">
     <header class="site-header">
       <img src="assets/logo.svg" width="196" height="32" alt="ResumeLeader">
@@ -385,11 +398,6 @@
     <main class="hero">
       <h1>Start your 7-day free trial and download file instantly</h1>
       <p class="sub">You're one step closer to getting your dream job!</p>
-
-      <div class="switcher" role="tablist" aria-label="Preview version">
-        <button type="button" id="tabV1" class="active" role="tab" aria-selected="true">With score</button>
-        <button type="button" id="tabV2" role="tab" aria-selected="false">Resume ready</button>
-      </div>
 
       <div class="plans">
         <!-- ===== score card (preview v1) ===== -->
