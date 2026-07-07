@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume score — ResumeLeader</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,1,0&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      padding: 32px 16px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .card {
+      position: relative;
+      width: 508px;
+      height: 536px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(107deg, #45A149 -7%, #5FBA6E 80%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    /* confetti dots layer (exported from Figma, pre-clipped) */
+    .dots {
+      position: absolute;
+      left: 57px;
+      top: 0;
+      pointer-events: none;
+    }
+
+    /* ---- score block ---- */
+    .score {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 3;
+      text-align: center;
+    }
+
+    .score-num {
+      line-height: 48px;
+      white-space: nowrap;
+    }
+    .score-num .big {
+      font-size: 40px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .score-num .small {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 26px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .badge {
+      margin-top: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 2px 6px;
+      background: #FBC02D;
+      border-radius: 6px;
+      transform: rotate(-2deg);
+      color: #000;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      white-space: nowrap;
+    }
+    .badge .material-symbols-rounded {
+      font-family: 'Material Symbols Rounded';
+      font-size: 16px;
+      line-height: 1;
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+
+    .headline { margin-top: 24px; }
+    .headline h1 {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 30px;
+      color: #fff;
+    }
+    .headline p {
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* ---- chips ---- */
+    .chips {
+      position: absolute;
+      top: 206.83px;
+      left: 50%;
+      margin-left: -164px;
+      width: 328px;
+      height: 37px;
+      z-index: 2;
+    }
+    .chip {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 34px;
+      padding: 8px 12px;
+      background: #834BFF;
+      border-radius: 16px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      white-space: nowrap;
+      transform-origin: 0 0;
+    }
+    .chip-icon { font-size: 16px; line-height: 1; }
+    .chip-1 { left: 0; top: 2.65px; width: 143px; transform: rotate(-1deg); }
+    .chip-2 { left: 167.05px; top: 0; width: 161px; transform: rotate(1deg); }
+
+    /* ---- resume preview ---- */
+    .resume {
+      position: absolute;
+      left: 43px;
+      top: 227.64px;
+      width: 422px;
+      height: 473px;
+      border-radius: 16px 16px 0 0;
+      outline: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 10px rgba(91, 91, 91, 0.16);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <section class="card">
+    <svg class="dots" width="451" height="461" viewBox="0 0 451 461" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="251.287" y="219.489" width="7.67225" height="7.67225" rx="1" transform="rotate(15 251.287 219.489)" fill="#54A55C"/>
+      <ellipse cx="75.7439" cy="48.2964" rx="2.415" ry="2.07" transform="rotate(45 75.7439 48.2964)" fill="#FFD166"/>
+      <ellipse cx="166.15" cy="12.1067" rx="4.2" ry="3.6" transform="rotate(-62 166.15 12.1067)" fill="#FFD166"/>
+      <rect x="416" y="8.125" width="4.91024" height="4.91024" rx="1" transform="rotate(59 416 8.125)" fill="#54A55C"/>
+      <rect x="42" y="92.25" width="6.90503" height="6.90503" rx="1" transform="rotate(57 42 92.25)" fill="#54A55C"/>
+      <rect x="103.5" y="108.25" width="6.21452" height="6.21452" rx="1" transform="rotate(47 103.5 108.25)" fill="#54A55C"/>
+      <rect x="278" y="58.25" width="5.21713" height="5.21713" rx="1" transform="rotate(-126 278 58.25)" fill="#54A55C"/>
+      <ellipse cx="398.03" cy="98.4007" rx="2.695" ry="2.31" transform="rotate(-72 398.03 98.4007)" fill="#FFD166"/>
+      <ellipse cx="4.8565" cy="168.456" rx="3.01" ry="2.58" transform="rotate(-54 4.8565 168.456)" fill="#FFD166"/>
+      <rect x="85.5" y="167.375" width="7.51881" height="7.51881" rx="1" transform="rotate(80 85.5 167.375)" fill="#54A55C"/>
+      <ellipse cx="296.892" cy="184.507" rx="2.45" ry="2.1" transform="rotate(155 296.892 184.507)" fill="#FFD166"/>
+      <ellipse cx="331.318" cy="150.372" rx="2.625" ry="2.25" transform="rotate(-76 331.318 150.372)" fill="#FFD166"/>
+      <rect x="394" y="159.375" width="7.13519" height="7.13519" rx="1" transform="rotate(23 394 159.375)" fill="#54A55C"/>
+      <ellipse cx="30.993" cy="227.381" rx="3.115" ry="2.67" transform="rotate(127 30.993 227.381)" fill="#FFD166"/>
+      <rect x="81.5" y="203.5" width="8.5162" height="8.5162" rx="1" transform="rotate(-169 81.5 203.5)" fill="#54A55C"/>
+      <ellipse cx="178.665" cy="206.338" rx="3.325" ry="2.85" transform="rotate(99 178.665 206.338)" fill="#FFD166"/>
+      <rect x="248.5" y="252.5" width="8.89981" height="8.89981" rx="1" transform="rotate(48 248.5 252.5)" fill="#54A55C"/>
+      <circle cx="271.767" cy="194.051" r="3.15" transform="rotate(-138 271.767 194.051)" fill="#3B71E3"/>
+      <rect x="361.5" y="204.5" width="4.91024" height="4.91024" rx="1" transform="rotate(15 361.5 204.5)" fill="#54A55C"/>
+      <ellipse cx="391.522" cy="217.026" rx="2.205" ry="1.89" transform="rotate(-99 391.522 217.026)" fill="#FFD166"/>
+      <ellipse cx="58.2838" cy="261.47" rx="3.15" ry="2.7" transform="rotate(113 58.2838 261.47)" fill="#FFD166"/>
+      <rect x="90.5" y="253.625" width="6.75158" height="6.75158" rx="1" transform="rotate(65 90.5 253.625)" fill="#54A55C"/>
+      <rect x="185" y="312.625" width="5.14041" height="5.14041" rx="1" transform="rotate(39 185 312.625)" fill="#54A55C"/>
+      <circle cx="227.952" cy="291.598" r="3.955" transform="rotate(-109 227.952 291.598)" fill="#3B71E3"/>
+      <ellipse cx="270.909" cy="263.432" rx="3.955" ry="3.39" transform="rotate(-167 270.909 263.432)" fill="#FFD166"/>
+      <rect x="365.5" y="253.625" width="8.5162" height="8.5162" rx="1" transform="rotate(65 365.5 253.625)" fill="#54A55C"/>
+      <circle cx="381.917" cy="288.354" r="3.36" transform="rotate(-161 381.917 288.354)" fill="#3B71E3"/>
+      <rect x="28" y="377.75" width="8.43948" height="8.43948" rx="1" transform="rotate(-3 28 377.75)" fill="#54A55C"/>
+      <ellipse cx="90.8107" cy="369.39" rx="3.325" ry="2.85" transform="rotate(172 90.8107 369.39)" fill="#FFD166"/>
+      <rect x="151" y="352.75" width="7.97914" height="7.97914" rx="1" transform="rotate(166 151 352.75)" fill="#54A55C"/>
+      <circle cx="209.34" cy="344.865" r="3.045" transform="rotate(120 209.34 344.865)" fill="#3B71E3"/>
+      <rect x="309" y="368.75" width="8.13258" height="8.13258" rx="1" transform="rotate(-175 309 368.75)" fill="#54A55C"/>
+      <rect x="363.5" y="362.75" width="7.36536" height="7.36536" rx="1" transform="rotate(-35 363.5 362.75)" fill="#54A55C"/>
+      <rect x="405" y="321.75" width="6.44469" height="6.44469" rx="1" transform="rotate(88 405 321.75)" fill="#54A55C"/>
+      <rect x="32" y="444.875" width="5.75419" height="5.75419" rx="1" transform="rotate(125 32 444.875)" fill="#54A55C"/>
+      <ellipse cx="106.049" cy="456.07" rx="4.095" ry="3.51" transform="rotate(65 106.049 456.07)" fill="#FFD166"/>
+      <circle cx="180.086" cy="421.926" r="3.5" transform="rotate(-134 180.086 421.926)" fill="#3B71E3"/>
+      <rect x="201.5" y="400.875" width="5.90763" height="5.90763" rx="1" transform="rotate(23 201.5 400.875)" fill="#54A55C"/>
+      <ellipse cx="267.695" cy="394.611" rx="3.115" ry="2.67" transform="rotate(25 267.695 394.611)" fill="#FFD166"/>
+      <circle cx="380.611" cy="454.104" r="3.78" transform="rotate(33 380.611 454.104)" fill="#3B71E3"/>
+      <ellipse cx="412.771" cy="433.514" rx="2.905" ry="2.49" transform="rotate(3 412.771 433.514)" fill="#FFD166"/>
+    </svg>
+
+    <div class="score">
+      <div class="score-num"><span class="big">87</span><span class="small">/100</span></div>
+      <div class="badge"><span class="material-symbols-rounded">star</span><span>Top 13% applicants</span></div>
+      <div class="headline">
+        <h1>Strong score, Yana! 🎉</h1>
+        <p>Your resume is ready to apply.</p>
+      </div>
+    </div>
+
+    <div class="chips">
+      <div class="chip chip-1"><span class="chip-icon">🛡️</span><span>ATS-optimized</span></div>
+      <div class="chip chip-2"><span class="chip-icon">📂</span><span>Export PDF ready</span></div>
+    </div>
+
+    <img class="resume" src="assets/resume.png" alt="Resume preview — Yana Mykhailenko, Product Designer" width="422" height="473">
+  </section>
+</body>
+</html>

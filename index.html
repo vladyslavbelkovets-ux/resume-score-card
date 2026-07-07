@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ResumeLeader — Start your 7-day free trial</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,1,0&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { background: #F5F5F7; }
+    body { font-family: 'Outfit', sans-serif; }
+
+    .msr {
+      font-family: 'Material Symbols Rounded';
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      direction: ltr;
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+
+    .page { width: 1440px; margin: 0 auto; overflow: hidden; position: relative; padding-bottom: 18px; }
+
+    /* ---------- header ---------- */
+    .site-header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0 149px;
+    }
+
+    /* ---------- hero ---------- */
+    .hero { padding: 24px 150px 0; }
+    .hero h1 { font-size: 32px; font-weight: 600; line-height: 40px; color: rgba(0,0,0,.87); }
+    .hero .sub { margin-top: 4px; font-size: 18px; font-weight: 400; line-height: 26px; color: rgba(0,0,0,.87); }
+    .plans { margin-top: 32px; display: flex; gap: 32px; align-items: flex-start; }
+
+    /* ---------- score card ---------- */
+    .card {
+      position: relative;
+      flex: none;
+      width: 508px;
+      height: 536px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(107deg, #45A149 -7%, #5FBA6E 80%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    }
+    .score-num {
+      position: absolute;
+      top: 24px; left: 0; right: 0;
+      text-align: center;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 81px;
+      color: #fff;
+      z-index: 2;
+    }
+    .badge-wrap {
+      position: absolute;
+      top: 102.7px; left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 2px 6px;
+      background: #FBC02D;
+      border-radius: 6px;
+      transform: rotate(-2deg);
+      color: #000;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      white-space: nowrap;
+    }
+    .badge .msr { font-size: 16px; }
+    .headline {
+      position: absolute;
+      top: 158.6px; left: 0; right: 0;
+      text-align: center;
+      color: #fff;
+      z-index: 2;
+    }
+    .headline h2 { font-size: 24px; font-weight: 600; line-height: 30px; }
+    .headline p { margin-top: 8px; font-size: 14px; font-weight: 400; line-height: 18px; color: rgba(255,255,255,.87); }
+    .chips {
+      position: absolute;
+      top: 246.6px; left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      z-index: 2;
+    }
+    .chip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 34px;
+      padding: 8px 12px;
+      background: #532BDC;
+      border-radius: 16px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+    .chip-icon { font-size: 16px; line-height: 1; }
+    .chip-1 { width: 143px; }
+    .chip-2 { width: 176px; }
+    .resume {
+      position: absolute;
+      left: 43px; top: 264.6px;
+      width: 422px; height: 473px;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 4px 12px 4px rgba(0,0,0,.08), 0 12px 20px rgba(0,0,0,.16);
+      z-index: 1;
+    }
+    .dots-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* ---------- payment panel ---------- */
+    .right-col {
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+    }
+    .panel {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 5px 40px rgba(0,0,0,.04), 0 5px 15.1px -2px rgba(0,0,0,.04);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .total-row { display: flex; justify-content: space-between; align-items: center; padding-right: 12px; height: 24px; }
+    .total-row .label { font-size: 20px; font-weight: 500; line-height: 24px; color: rgba(0,0,0,.87); }
+    .price { font-size: 20px; font-weight: 600; line-height: 24px; color: rgba(0,0,0,.87); }
+    .price sup { font-size: 12px; font-weight: 600; vertical-align: 7px; }
+
+    .pay-options { display: flex; flex-direction: column; gap: 12px; }
+    .btn { border: 0; cursor: pointer; font-family: inherit; }
+    .btn-paypal {
+      height: 48px;
+      background: #FFC43A;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-paypal img { width: 94px; height: 25px; display: block; }
+    .wallet-row { display: flex; gap: 12px; }
+    .btn-wallet {
+      flex: 1;
+      height: 48px;
+      background: #000;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Roboto, sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+    .btn-wallet svg { display: block; }
+
+    .or-divider { display: flex; align-items: center; padding: 8px 0; }
+    .or-divider::before, .or-divider::after { content: ''; flex: 1; border-top: 1px solid #D0D0D0; }
+    .or-divider span { padding: 0 16px; font-size: 13px; font-weight: 800; line-height: 16px; color: rgba(0,0,0,.6); text-transform: uppercase; }
+
+    .card-form { display: flex; flex-direction: column; }
+    .by-card-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .by-card-row .label { font-size: 14px; font-weight: 400; line-height: 18px; color: rgba(0,0,0,.6); }
+    .card-logos { display: flex; gap: 5px; align-items: center; }
+    .card-logos img { width: 40px; height: 24px; display: block; }
+
+    .field {
+      height: 56px;
+      border: 1px solid rgba(0,0,0,.14);
+      border-radius: 12px;
+      padding: 8px 12px;
+      background: #fff;
+    }
+    .field label { display: block; font-size: 13px; font-weight: 300; line-height: 14px; color: rgba(0,0,0,.6); }
+    .field .in-row { display: flex; align-items: center; gap: 8px; margin-top: 2px; height: 24px; }
+    .field .msr { font-size: 24px; color: rgba(0,0,0,.6); opacity: .8; }
+    .field input {
+      border: 0; outline: 0; width: 100%; background: transparent;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px; font-weight: 300; line-height: 24px;
+      color: rgba(0,0,0,.87);
+    }
+    .field input::placeholder { color: rgba(0,0,0,.48); }
+    .field-cardnum { margin-bottom: 24px; }
+    .field-duo { display: flex; gap: 16px; margin-bottom: 24px; }
+    .field-duo .field { flex: 1; }
+    .btn-primary {
+      height: 56px;
+      background: #1F5DE2;
+      border-radius: 16px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+      width: 100%;
+    }
+
+    .features { display: flex; flex-direction: column; gap: 8px; padding: 0 24px; }
+    .feat { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 400; line-height: 22px; color: rgba(0,0,0,.87); }
+    .feat .msr { font-size: 24px; color: #4CAF50; }
+    hr.hairline { border: 0; border-top: 1px solid rgba(0,0,0,.12); transform: scaleY(.5); }
+    .descriptor { padding: 0 20px; opacity: .7; font-size: 13px; font-weight: 400; line-height: 16px; color: rgba(0,0,0,.48); }
+    .descriptor u { text-decoration: underline; }
+
+    .secure { display: flex; align-items: center; padding-top: 12px; }
+    .secure .msr { font-size: 20px; color: rgba(0,0,0,.6); }
+    .secure .txt { margin-left: 6px; font-size: 16px; font-weight: 400; line-height: 22px; color: rgba(0,0,0,.6); }
+    .secure .logos { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .secure .logos img { display: block; }
+
+    /* ---------- reviews ---------- */
+    .reviews { padding-top: 48px; }
+    .reviews .inner { margin: 0 153px; }
+    .reviews h2 { font-size: 32px; font-weight: 600; line-height: 40px; color: rgba(0,0,0,.87); }
+    .meta-row { margin-top: 32px; height: 48px; display: flex; justify-content: space-between; align-items: center; }
+    .meta-left { display: flex; align-items: center; gap: 24px; }
+    .meta-left .vdiv { width: 1px; height: 24px; background: rgba(0,0,0,.12); }
+    .rating { display: flex; align-items: center; gap: 10px; font-size: 18px; line-height: 26px; }
+    .rating .strong { font-weight: 500; color: rgba(0,0,0,.87); }
+    .rating .muted { font-weight: 400; color: rgba(0,0,0,.48); margin-left: -4px; }
+    .avatars { display: flex; align-items: center; }
+    .avatar { width: 48px; height: 48px; border-radius: 50%; flex: none; }
+    .avatar + .avatar { margin-left: -8px; }
+    .avatar.initials {
+      background: #424242;
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .strip-zone { position: relative; margin-top: 32px; height: 321px; }
+    .strip-viewport { display: flex; justify-content: center; }
+    .track { display: flex; gap: 16px; flex: none; }
+    .review-card {
+      width: 308px; height: 321px;
+      flex: none;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 16px;
+      padding: 40px 32px;
+    }
+    .stars-row { display: flex; align-items: center; gap: 12px; }
+    .stars { display: flex; gap: 4px; }
+    .stars svg { width: 24px; height: 24px; display: block; }
+    .stars-row .ago { font-size: 14px; font-weight: 400; line-height: 18px; color: rgba(0,0,0,.6); }
+    .review-card h3 { margin-top: 16px; font-size: 20px; font-weight: 600; line-height: 24px; color: rgba(0,0,0,.87); }
+    .review-card .body { margin-top: 20px; font-size: 16px; font-weight: 400; line-height: 22px; color: rgba(0,0,0,.87); }
+    .review-card .author { margin-top: 20px; font-size: 18px; font-weight: 500; line-height: 26px; color: rgba(0,0,0,.87); }
+
+    .nav-btn {
+      position: absolute;
+      top: 137px;
+      width: 48px; height: 48px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(0,0,0,.32);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 4;
+    }
+    .nav-btn .msr { font-size: 24px; }
+    .nav-prev { left: 129px; }
+    .nav-next { right: 129px; }
+
+    .pagination { margin-top: 32px; padding-top: 8px; display: flex; justify-content: center; align-items: center; }
+    .pdot { width: 8px; height: 8px; border-radius: 4px; background: rgba(0,0,0,.14); margin: 6px; transition: width .3s, background .3s; }
+    .pdot.active { width: 24px; background: rgba(0,0,0,.8); }
+
+    /* ---------- entrance animations ---------- */
+    @keyframes cardIn { from { opacity: 0; transform: translateY(28px) scale(.97); } to { opacity: 1; transform: none; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes riseSoft { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @keyframes badgePop {
+      0% { opacity: 0; transform: rotate(-2deg) scale(.4); }
+      70% { opacity: 1; transform: rotate(-2deg) scale(1.08); }
+      100% { opacity: 1; transform: rotate(-2deg) scale(1); }
+    }
+    @keyframes resumeUp { from { opacity: 0; transform: translateY(64px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes floaty { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .card { animation: cardIn .7s cubic-bezier(.22,1,.36,1) both; }
+      .score-num { animation: rise .5s cubic-bezier(.22,1,.36,1) .15s both; }
+      .badge { animation: badgePop .55s cubic-bezier(.34,1.56,.64,1) .45s both; }
+      .headline h2 { animation: rise .5s cubic-bezier(.22,1,.36,1) .3s both; }
+      .headline p { animation: rise .5s cubic-bezier(.22,1,.36,1) .4s both; }
+      .chip-1 { animation: rise .5s cubic-bezier(.22,1,.36,1) .5s both; }
+      .chip-2 { animation: rise .5s cubic-bezier(.22,1,.36,1) .58s both; }
+      .resume { animation: resumeUp .7s cubic-bezier(.22,1,.36,1) .55s both; }
+      .dots-overlay { animation: fadeIn .8s ease .7s both, floaty 5s ease-in-out 1.6s infinite alternate; }
+      .right-col { animation: riseSoft .6s cubic-bezier(.22,1,.36,1) .2s both; }
+      .hero h1, .hero .sub { animation: riseSoft .5s cubic-bezier(.22,1,.36,1) both; }
+      .reviews { animation: riseSoft .6s cubic-bezier(.22,1,.36,1) .35s both; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="tp-star" viewBox="0 0 24 24">
+      <rect width="24" height="24" fill="#00B67A"/>
+      <path d="M20.7381 10.1641H14.4371L12.4971 4.20312L10.5451 10.1641L4.24414 10.1531L9.34014 13.8421L7.39014 19.8031L12.4861 16.1141L17.5831 19.8031L15.6431 13.8421L20.7381 10.1641Z" fill="white"/>
+      <path d="M16.081 15.1829L15.645 13.8359L12.5 16.1069L16.081 15.1829Z" fill="#00B67A"/>
+    </symbol>
+  </svg>
+
+  <div class="page">
+    <header class="site-header">
+      <img src="assets/logo.svg" width="196" height="32" alt="ResumeLeader">
+    </header>
+
+    <main class="hero">
+      <h1>Start your 7-day free trial and download file instantly</h1>
+      <p class="sub">You're one step closer to getting your dream job!</p>
+
+      <div class="plans">
+        <!-- ===== score card (preview) ===== -->
+        <section class="card">
+          <div class="score-num" id="score">87</div>
+          <div class="badge-wrap">
+            <div class="badge"><span class="msr">star</span><span>Top 14% of applicants</span></div>
+          </div>
+          <div class="headline">
+            <h2>Strong score, Yana! 🎉</h2>
+            <p>Your resume's ready to download and apply.</p>
+          </div>
+          <div class="chips">
+            <div class="chip chip-1"><span class="chip-icon">🛡️</span><span>ATS-optimized</span></div>
+            <div class="chip chip-2"><span class="chip-icon">📂</span><span>Ready for download</span></div>
+          </div>
+          <img class="resume" src="assets/resume.png" alt="Resume preview — Yana Mykhailenko, Product Designer" width="422" height="473">
+          <svg class="dots-overlay" width="508" height="536" viewBox="0 0 508 536" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="425.643" cy="58.1515" rx="3.73919" ry="3.20502" transform="rotate(11.5135 425.643 58.1515)" fill="#FFD166"/>
+            <ellipse cx="327.304" cy="29.8869" rx="3.73919" ry="3.20502" transform="rotate(11.5135 327.304 29.8869)" fill="#FFD166"/>
+            <circle cx="460.879" cy="77.8668" r="3.73919" transform="rotate(11.5135 460.879 77.8668)" fill="#3B71E3"/>
+            <ellipse cx="68.6336" cy="114.083" rx="3.73919" ry="3.20502" transform="rotate(11.5135 68.6336 114.083)" fill="#FFD166"/>
+            <ellipse cx="465.537" cy="142.777" rx="3.73919" ry="3.20502" transform="rotate(116.513 465.537 142.777)" fill="#FFD166"/>
+            <ellipse cx="97.4455" cy="156.166" rx="3.73919" ry="3.20502" transform="rotate(-91.5937 97.4455 156.166)" fill="#FFD166"/>
+            <ellipse cx="41.4455" cy="228.166" rx="3.73919" ry="3.20502" transform="rotate(-91.5937 41.4455 228.166)" fill="#FFD166"/>
+            <rect x="84.6582" y="176" width="8.19657" height="8.19657" rx="1" transform="rotate(26.5135 84.6582 176)" fill="#54A55C"/>
+            <ellipse opacity="0.73" cx="67.4884" cy="37.271" rx="3.02874" ry="2.59607" transform="rotate(165.513 67.4884 37.271)" fill="#FFD166"/>
+            <ellipse opacity="0.88" cx="133.289" cy="72.9627" rx="4.22529" ry="3.62167" transform="rotate(-22.4866 133.289 72.9627)" fill="#FFD166"/>
+            <ellipse opacity="0.88" cx="448.522" cy="207.872" rx="4.22529" ry="3.62167" transform="rotate(82.5134 448.522 207.872)" fill="#FFD166"/>
+            <ellipse opacity="0.88" cx="26.7338" cy="150.52" rx="4.22529" ry="3.62167" transform="rotate(-125.594 26.7338 150.52)" fill="#FFD166"/>
+            <ellipse opacity="0.88" cx="384.289" cy="104.962" rx="4.22529" ry="3.62167" transform="rotate(-22.4866 384.289 104.962)" fill="#FFD166"/>
+            <circle opacity="0.96" cx="94.9321" cy="78.9314" r="2.767" transform="rotate(3.51345 94.9321 78.9314)" fill="#3B71E3"/>
+            <rect opacity="0.99" x="35.2148" y="87.0625" width="5.24581" height="5.24581" rx="1" transform="rotate(121.513 35.2148 87.0625)" fill="#54A55C"/>
+            <circle opacity="0.96" cx="412.683" cy="137.277" r="2.767" transform="rotate(108.513 412.683 137.277)" fill="#3B71E3"/>
+            <circle opacity="0.96" cx="41.2457" cy="186.524" r="2.767" transform="rotate(-99.5937 41.2457 186.524)" fill="#3B71E3"/>
+            <rect opacity="0.76" x="25.5586" y="77.6543" width="7.54085" height="7.54085" rx="1" transform="rotate(-137.487 25.5586 77.6543)" fill="#54A55C"/>
+            <ellipse opacity="0.77" cx="498.452" cy="268.378" rx="2.58004" ry="2.21146" transform="rotate(-130.487 498.452 268.378)" fill="#FFD166"/>
+            <rect opacity="0.87" x="138.602" y="480.727" width="4.99991" height="4.99991" rx="1" transform="rotate(121.513 138.602 480.727)" fill="#54A55C"/>
+            <circle opacity="0.72" cx="357.589" cy="395.33" r="2.91657" transform="rotate(123.513 357.589 395.33)" fill="#3B71E3"/>
+          </svg>
+        </section>
+
+        <!-- ===== payment panel ===== -->
+        <div class="right-col">
+        <section class="panel">
+          <div class="total-row">
+            <span class="label">Total due today</span>
+            <span class="price">$1.<sup>95</sup></span>
+          </div>
+
+          <div class="pay-options">
+            <button class="btn btn-paypal" type="button"><img src="assets/paypal.png" alt="PayPal"></button>
+            <div class="wallet-row">
+              <button class="btn btn-wallet" type="button">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5804 4.83559C15.7742 4.83559 16.1046 4.86568 16.5716 4.92585C17.0386 4.98603 17.5497 5.15796 18.1048 5.44165C18.6687 5.71674 19.1798 6.17666 19.638 6.82141C19.6116 6.8472 19.4838 6.94176 19.2547 7.10509C19.0256 7.25983 18.7701 7.49194 18.4881 7.80142C18.2061 8.1023 17.9594 8.48915 17.748 8.96196C17.5365 9.42618 17.4307 9.98066 17.4307 10.6254C17.4307 11.3647 17.5629 11.9923 17.8273 12.5081C18.1004 13.0239 18.4132 13.4408 18.7657 13.7589C19.1269 14.0683 19.4441 14.2962 19.7173 14.4423C19.9992 14.5884 20.149 14.6658 20.1667 14.6744C20.1579 14.7088 20.0433 15.014 19.823 15.5899C19.6116 16.1659 19.2591 16.8064 18.7657 17.5113C18.3339 18.1216 17.8669 18.6847 17.3647 19.2005C16.8712 19.7163 16.2765 19.9742 15.5804 19.9742C15.1134 19.9742 14.7301 19.9097 14.4305 19.7808C14.1309 19.6432 13.8225 19.51 13.5053 19.381C13.1881 19.2435 12.7607 19.1747 12.2232 19.1747C11.7034 19.1747 11.2672 19.2435 10.9147 19.381C10.5711 19.5186 10.2407 19.6561 9.92347 19.7937C9.61508 19.9312 9.2494 20 8.82646 20C8.18323 20 7.61931 19.7507 7.13468 19.2521C6.65006 18.7535 6.15222 18.156 5.64116 17.4597C5.0508 16.6344 4.54414 15.6286 4.1212 14.4423C3.70707 13.2474 3.5 12.0438 3.5 10.8317C3.5 9.53363 3.75112 8.44616 4.25337 7.56931C4.75562 6.68386 5.39885 6.01762 6.18306 5.5706C6.97608 5.11498 7.79553 4.88717 8.64142 4.88717C9.0908 4.88717 9.51375 4.96024 9.91026 5.10638C10.3068 5.24393 10.6768 5.38577 11.0205 5.53191C11.3729 5.67806 11.6901 5.75113 11.9721 5.75113C12.2453 5.75113 12.5625 5.67376 12.9237 5.51902C13.285 5.36428 13.6903 5.21384 14.1397 5.0677C14.5891 4.91296 15.0693 4.83559 15.5804 4.83559ZM14.8534 3.19794C14.5098 3.60198 14.078 3.94154 13.5582 4.21663C13.0383 4.48313 12.5448 4.61638 12.0778 4.61638C11.9809 4.61638 11.8884 4.60778 11.8003 4.59059C11.7915 4.5648 11.7827 4.51752 11.7739 4.44874C11.765 4.37997 11.7606 4.3069 11.7606 4.22953C11.7606 3.71373 11.8752 3.21513 12.1043 2.73372C12.3334 2.24371 12.5933 1.83967 12.8841 1.5216C13.2542 1.09177 13.7212 0.73501 14.2851 0.451322C14.849 0.167634 15.3865 0.0171932 15.8976 0C15.924 0.111756 15.9372 0.245003 15.9372 0.399742C15.9372 0.915538 15.8359 1.41844 15.6332 1.90845C15.4306 2.38986 15.1706 2.81969 14.8534 3.19794Z" fill="white"/></svg>
+                <span>Pay</span>
+              </button>
+              <button class="btn btn-wallet" type="button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.9991 12.2716C24.0001 11.4539 23.9296 10.6376 23.7882 9.83179H12.2422V14.4531H18.8552C18.7199 15.1912 18.4335 15.8947 18.0132 16.5214C17.593 17.1481 17.0476 17.6849 16.41 18.0994V21.0992H20.3567C22.6676 19.011 23.9991 15.923 23.9991 12.2716Z" fill="#4285F4"/><path d="M12.1385 24.0001C15.4142 24.0001 18.1723 22.9369 20.1836 21.1037L16.2706 18.104C15.1815 18.8339 13.7788 19.2505 12.1385 19.2505C8.97231 19.2505 6.28496 17.1407 5.32399 14.2976H1.29297V17.389C2.30328 19.3763 3.85249 21.0469 5.76762 22.2144C7.68276 23.3818 9.88845 24 12.1385 24.0001V24.0001Z" fill="#34A853"/><path d="M5.36946 14.2937C4.85705 12.8039 4.85705 11.1906 5.36946 9.70079V6.60938H1.30369C0.446449 8.28116 0 10.1263 0 11.9973C0 13.8683 0.446449 15.7134 1.30369 17.3852L5.36946 14.2937Z" fill="#FBBC04"/><path d="M12.2417 4.7504C13.9877 4.72244 15.6748 5.36897 16.9384 6.55025L20.4328 3.12553C18.2169 1.08582 15.2815 -0.0340083 12.2417 0.000787248C9.97232 0.000888615 7.74761 0.619161 5.81596 1.78658C3.88432 2.954 2.32176 4.62461 1.30273 6.61191L5.36851 9.70333C6.33776 6.86023 9.04827 4.7504 12.2417 4.7504Z" fill="#EA4335"/></svg>
+                <span>Pay</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="or-divider"><span>or</span></div>
+
+          <div class="card-form">
+            <div class="by-card-row">
+              <span class="label">By card</span>
+              <div class="card-logos">
+                <img src="assets/card-mc.png" alt="Mastercard">
+                <img src="assets/card-maestro.png" alt="Maestro">
+                <img src="assets/card-visa.png" alt="Visa">
+                <img src="assets/card-amex.png" alt="American Express">
+                <img src="assets/card-jcb.png" alt="JCB">
+              </div>
+            </div>
+            <div class="field field-cardnum">
+              <label for="cardnum">Card number</label>
+              <div class="in-row">
+                <span class="msr">credit_card</span>
+                <input id="cardnum" inputmode="numeric" autocomplete="cc-number" placeholder="0000&nbsp;&nbsp;0000&nbsp;&nbsp;0000&nbsp;&nbsp;0000">
+              </div>
+            </div>
+            <div class="field-duo">
+              <div class="field">
+                <label for="expiry">Expiry date</label>
+                <div class="in-row"><input id="expiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / YY"></div>
+              </div>
+              <div class="field">
+                <label for="cvv">CVV/CVC</label>
+                <div class="in-row"><input id="cvv" inputmode="numeric" autocomplete="cc-csc" placeholder="000"></div>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="button">Download resume</button>
+          </div>
+
+          <div class="secure">
+            <span class="msr">verified_user</span>
+            <span class="txt">Your payment is secure. All information encrypted.</span>
+            <div class="logos">
+              <img src="assets/norton.png" width="48" height="23" alt="Norton">
+              <img src="assets/mcafee.png" width="45" height="18" alt="McAfee Secure">
+              <img src="assets/visa-secure.png" width="28" height="28" alt="Visa Secure">
+            </div>
+          </div>
+        </section>
+
+        <div class="features">
+          <div class="feat"><span class="msr">check_circle</span><span>30-day money-back guarantee</span></div>
+          <div class="feat"><span class="msr">check_circle</span><span>24/7 customer support</span></div>
+          <div class="feat"><span class="msr">check_circle</span><span>Trusted by hundreds of job seekers with a 4.9 average rating</span></div>
+        </div>
+
+        <hr class="hairline">
+
+        <p class="descriptor">By proceeding, you agree to be bound by our <u>&nbsp;Terms and Conditions</u> and acknowledge our Privacy Policy. If you don't cancel at least 24 hours prior to the end of the 7-day trial, you will automatically be charged $39.99 every month until you cancel in settings. Subscription Policy and Refund Policy. For customer support, please call us at +1 (866) 716-6045 or e-mail support@resumeleader.com.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== reviews ===== -->
+    <section class="reviews">
+      <div class="inner">
+        <h2>What our users say</h2>
+        <div class="meta-row">
+          <div class="meta-left">
+            <img src="assets/trustpilot.svg" width="130" height="32" alt="Trustpilot">
+            <span class="vdiv"></span>
+            <div class="rating">
+              <span class="strong">Excellent</span>
+              <span class="strong">•</span>
+              <span class="strong">4,5</span>
+              <span class="muted">out of 5</span>
+            </div>
+          </div>
+          <div class="avatars">
+            <img class="avatar" src="assets/avatar-1.png" alt="">
+            <img class="avatar" src="assets/avatar-2.png" alt="">
+            <img class="avatar" src="assets/avatar-3.png" alt="">
+            <img class="avatar" src="assets/avatar-4.png" alt="">
+            <img class="avatar" src="assets/avatar-5.png" alt="">
+            <img class="avatar" src="assets/avatar-6.png" alt="">
+            <div class="avatar initials">FN</div>
+            <div class="avatar initials">KJ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="strip-zone">
+        <div class="strip-viewport">
+          <div class="track" id="track"></div>
+        </div>
+        <button class="nav-btn nav-prev" id="prevBtn" type="button" aria-label="Previous reviews"><span class="msr">chevron_left</span></button>
+        <button class="nav-btn nav-next" id="nextBtn" type="button" aria-label="Next reviews"><span class="msr">chevron_right</span></button>
+      </div>
+
+      <div class="pagination" id="pagination"></div>
+    </section>
+  </div>
+
+  <script>
+    // ----- review cards -----
+    const REVIEWS = [
+      { title: "Best on the market", body: "I've been writing my resume for 14 years and wish this program had existed in high school. I've learned a lot from the formatting and detailed job descriptions.", author: "Alexa Mitskevitch" },
+      { title: "Perfect template to write a good CV", body: "Great recommendations for my resume! The process was easy and efficient.", author: "Alexa Mitskevitch" },
+      { title: "Great experience!", body: "This was a fantastic experience! The site was easy to navigate and did most of the work for me, resulting in a more appealing and professional resume.", author: "Alexa Mitskevitch" },
+      { title: "Easy quick best resume ive made", body: "An excellent tool that simplifies creating customized CVs for each job. It offers great layouts and AI assistance for content.", author: "Alexa Mitskevitch" },
+      { title: "Great experience!", body: "This was a fantastic experience! The site was easy to navigate and did most of the work for me, resulting in a more appealing and professional resume.", author: "Alexa Mitskevitch" }
+    ];
+    const track = document.getElementById('track');
+    const starRow = '<div class="stars">' + Array(5).fill('<svg><use href="#tp-star"/></svg>').join('') + '</div>';
+    track.innerHTML = REVIEWS.map(r => `
+      <article class="review-card">
+        <div class="stars-row">${starRow}<span class="ago">5 hours ago</span></div>
+        <h3>${r.title}</h3>
+        <p class="body">${r.body}</p>
+        <p class="author">${r.author}</p>
+      </article>`).join('');
+
+    // ----- pagination dots -----
+    const DOTS = 10;
+    let activeDot = 0;
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = Array(DOTS).fill('<span class="pdot"></span>').join('');
+    const dotEls = [...pagination.children];
+    const renderDots = () => dotEls.forEach((d, i) => d.classList.toggle('active', i === activeDot));
+    renderDots();
+
+    // ----- carousel -----
+    const STEP = 324; // card width + gap
+    let animating = false;
+    function slide(dir) {
+      if (animating) return;
+      animating = true;
+      activeDot = (activeDot + dir + DOTS) % DOTS;
+      renderDots();
+      if (dir === 1) {
+        track.style.transition = 'transform .45s cubic-bezier(.22,1,.36,1)';
+        track.style.transform = `translateX(-${STEP}px)`;
+        track.addEventListener('transitionend', () => {
+          track.style.transition = 'none';
+          track.appendChild(track.firstElementChild);
+          track.style.transform = 'none';
+          requestAnimationFrame(() => { animating = false; });
+        }, { once: true });
+      } else {
+        track.style.transition = 'none';
+        track.insertBefore(track.lastElementChild, track.firstElementChild);
+        track.style.transform = `translateX(-${STEP}px)`;
+        requestAnimationFrame(() => {
+          track.style.transition = 'transform .45s cubic-bezier(.22,1,.36,1)';
+          track.style.transform = 'none';
+          track.addEventListener('transitionend', () => { animating = false; }, { once: true });
+        });
+      }
+    }
+    document.getElementById('nextBtn').addEventListener('click', () => slide(1));
+    document.getElementById('prevBtn').addEventListener('click', () => slide(-1));
+
+    // ----- score count-up on open -----
+    const scoreEl = document.getElementById('score');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const TARGET = 87, DURATION = 1100, START_DELAY = 250;
+      scoreEl.textContent = '0';
+      setTimeout(() => {
+        const t0 = performance.now();
+        (function tick(now) {
+          const p = Math.min((now - t0) / DURATION, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          scoreEl.textContent = Math.round(TARGET * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      }, START_DELAY);
+    }
+  </script>
+</body>
+</html>
