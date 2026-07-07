@@ -55,8 +55,14 @@ cd ../ui-pes-design-crew && npm run build && npm pack --pack-destination ../resu
 
 ## Deploy
 
+Build locally and ship the prebuilt output (ui-pes pulls
+`@universe-forma/global-types` from a private GitHub registry, so a remote
+`npm install` on Vercel fails without a token):
+
 ```sh
-vercel deploy --prod
+vercel pull --yes --environment production   # once per machine
+vercel build --prod --yes
+vercel deploy --prebuilt --prod --yes
 ```
 
 `vercel.json` pins the Vite framework preset (`npm run build` → `dist/`).
