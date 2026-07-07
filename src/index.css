@@ -191,6 +191,8 @@ body { font-family: 'Outfit', sans-serif; }
   background: #fff;
 }
 .rl-field-label {
+  display: block !important;
+  height: 14px;
   font-size: 13px !important;
   line-height: 14px !important;
   font-weight: 300 !important;
